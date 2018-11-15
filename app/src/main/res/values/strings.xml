@@ -17,4 +17,10 @@
     <string name="txtCategory">Choose Category</string>
     <string name="txtAmt">Enter Amount</string>
     <string name="logoutBtn">Logout</string>
+    <string name="txtSignin">Sign In</string>
+    <string name="txtSignup"> Sign Up</string>
+    <string name="txtCreateAccount">Create Account</string>
+    <string name="txtNewAccount">New Account</string>
+    <string name="txtDontHaveAccount">Don"'"t have an account? </string>
+
 </resources>
