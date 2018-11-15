@@ -237,8 +237,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     boolean onOpen() {
         Cursor c = sqldb.rawQuery("SELECT " + T1_C5 + "," +T1_C7 + " FROM " + T1 + " WHERE " + T1_C1 + "=" + clientID, null);
         c.moveToNext();
-        String lastRun = c.getString(0);
-        Double lim = c.getDouble(1);
+        Double lim = c.getDouble(0);
+        String lastRun = c.getString(1);
         c.close();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA);
         String today = sdf.format(new Date());
@@ -256,7 +256,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             while (!lastDate.equals(curDate)) {
                 Double limit = lim;
-                String date = sdf.format(lastDate.getTime().toString());
+                String date = sdf.format(lastDate.getTime());
                 Cursor c1 = sqldb.query(T2, new String[] {"SUM("+T2_C6+")"}, T2_C1+"=? AND "+T2_C3+"=?", new String[] {clientID,date},null,null,null);
                 c1.moveToNext();
                 double amt = c1.getDouble(0);

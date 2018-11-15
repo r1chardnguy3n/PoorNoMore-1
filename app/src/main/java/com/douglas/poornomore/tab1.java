@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -23,6 +24,10 @@ public class tab1 extends Fragment {
 
         final DatabaseHelper dbh = new DatabaseHelper(getActivity());
         TextView dailyAmt = rootView.findViewById(R.id.dailyAmount);
+
+        if (dbh.onOpen()) {
+            Toast.makeText(getActivity(),"Updated records for today", Toast.LENGTH_SHORT).show();
+        }
 
         Cursor limit = dbh.getLimit();
         while (limit.moveToNext()) {
