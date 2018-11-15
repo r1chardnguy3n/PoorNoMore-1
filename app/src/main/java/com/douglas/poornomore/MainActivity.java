@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
 
     }
-    //test
+    //TEST
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
      * one of the sections/tabs/pages.
