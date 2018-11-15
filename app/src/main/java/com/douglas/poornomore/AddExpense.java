@@ -17,7 +17,7 @@ public class AddExpense extends AppCompatActivity {
         setContentView(R.layout.activity_add_expense);
 
         final Calendar calendar = Calendar.getInstance();
-        final TextView selectDate = (TextView) findViewById(R.id.date);
+        final TextView selectDate = findViewById(R.id.transDate);
 
 
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {

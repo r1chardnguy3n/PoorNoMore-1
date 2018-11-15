@@ -48,7 +48,7 @@
                     android:background="@null"
                     android:drawableLeft="@drawable/usericon"
                     android:drawablePadding="15dp"
-                    android:hint="Email"
+                    android:hint="@string/txtEmail"
                     android:inputType="textEmailAddress"
                     android:textColor="#ffffff"
                     android:textColorHint="#ffffff"
