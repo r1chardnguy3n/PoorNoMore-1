@@ -86,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
