@@ -16,21 +16,61 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cardViewDyAmount"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="120dp"
                 android:layout_margin="5dp"
-                android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
                 android:padding="5dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp"
                 app:cardPreventCornerOverlap="true"
                 app:cardUseCompatPadding="false"
                 app:contentPadding="0dp">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/titleCategories"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    app:cardBackgroundColor="#F0F0F0"
+                    app:cardCornerRadius="15dp"
+                    app:cardElevation="0dp"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/title_total_expenses"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginRight="10dp"
+                            android:text="@string/totalexpenses"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/title_daylimit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="16dp"
+                            android:text="@string/dayLimit"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -41,13 +81,22 @@
                         android:id="@+id/dailyAmount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginTop="0dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="0dp"
+                        android:layout_marginLeft="0dp"
                         android:gravity="center_vertical|center_horizontal"
                         android:text="$23,00"
                         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                        android:textSize="50sp"
+                        android:textSize="45sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/totalExpensesAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:text="$1500,00" />
 
                 </RelativeLayout>
 
@@ -58,8 +107,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
                 android:padding="5dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="5dp"
@@ -72,6 +121,35 @@
                     android:layout_height="match_parent"
                     android:layout_alignEnd="@+id/cardViewCategories"
                     android:orientation="vertical">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/titleCategories"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:cardBackgroundColor="#F0F0F0"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="0dp"
+                        app:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:id="@+id/title_categories"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="16dp"
+                                android:text="@string/Categories"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </android.support.v7.widget.CardView>
 
                     <android.support.v7.widget.CardView
                         android:id="@+id/transitCard"
@@ -99,12 +177,12 @@
                                 android:id="@+id/transportation_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
-                                android:layout_marginStart="71dp"
                                 android:layout_marginLeft="71dp"
-                                android:text="Transportation" />
+                                android:layout_marginStart="71dp"
+                                android:text="@string/transportation" />
 
                             <TextView
                                 android:id="@+id/transportation_Value"
@@ -122,11 +200,11 @@
                                 android:id="@+id/divider1"
                                 android:layout_width="2dp"
                                 android:layout_height="55dp"
-                                android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_alignParentTop="true"
-                                android:layout_marginStart="56dp"
                                 android:layout_marginLeft="56dp"
+                                android:layout_marginStart="56dp"
                                 android:background="#FFFFFF" />
 
                         </RelativeLayout>
@@ -159,12 +237,12 @@
                                 android:id="@+id/groceries_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
-                                android:layout_marginStart="71dp"
                                 android:layout_marginLeft="71dp"
-                                android:text="Groceries" />
+                                android:layout_marginStart="71dp"
+                                android:text="@string/groceries" />
 
                             <TextView
                                 android:id="@+id/groceries_value"
@@ -182,11 +260,11 @@
                                 android:id="@+id/divider2"
                                 android:layout_width="2dp"
                                 android:layout_height="55dp"
-                                android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_alignParentTop="true"
-                                android:layout_marginStart="56dp"
                                 android:layout_marginLeft="56dp"
+                                android:layout_marginStart="56dp"
                                 android:background="#FFFFFF" />
 
                         </RelativeLayout>
@@ -219,12 +297,12 @@
                                 android:id="@+id/liquor_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
-                                android:layout_marginStart="71dp"
                                 android:layout_marginLeft="71dp"
-                                android:text="Liquor" />
+                                android:layout_marginStart="71dp"
+                                android:text="@string/liquor" />
 
                             <TextView
                                 android:id="@+id/liquor_value"
@@ -242,11 +320,11 @@
                                 android:id="@+id/divider3"
                                 android:layout_width="2dp"
                                 android:layout_height="55dp"
-                                android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_alignParentTop="true"
-                                android:layout_marginStart="56dp"
                                 android:layout_marginLeft="56dp"
+                                android:layout_marginStart="56dp"
                                 android:background="#FFFFFF" />
 
                         </RelativeLayout>
@@ -279,12 +357,12 @@
                                 android:id="@+id/restaurants_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
-                                android:layout_marginStart="71dp"
                                 android:layout_marginLeft="71dp"
-                                android:text="Restaurants" />
+                                android:layout_marginStart="71dp"
+                                android:text="@string/restaurants" />
 
                             <TextView
                                 android:id="@+id/restaurants_value"
@@ -302,11 +380,11 @@
                                 android:id="@+id/divider4"
                                 android:layout_width="2dp"
                                 android:layout_height="55dp"
-                                android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_alignParentTop="true"
-                                android:layout_marginStart="56dp"
                                 android:layout_marginLeft="56dp"
+                                android:layout_marginStart="56dp"
                                 android:background="#FFFFFF" />
 
                         </RelativeLayout>
@@ -339,12 +417,12 @@
                                 android:id="@+id/clothing_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
-                                android:layout_marginStart="71dp"
                                 android:layout_marginLeft="71dp"
-                                android:text="Clothing" />
+                                android:layout_marginStart="71dp"
+                                android:text="@string/clothing" />
 
                             <TextView
                                 android:id="@+id/clothing_value"
@@ -362,11 +440,11 @@
                                 android:id="@+id/divider5"
                                 android:layout_width="2dp"
                                 android:layout_height="55dp"
-                                android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_alignParentTop="true"
-                                android:layout_marginStart="56dp"
                                 android:layout_marginLeft="56dp"
+                                android:layout_marginStart="56dp"
                                 android:background="#FFFFFF" />
 
                         </RelativeLayout>
@@ -399,12 +477,12 @@
                                 android:id="@+id/other_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_centerVertical="true"
-                                android:layout_marginStart="71dp"
                                 android:layout_marginLeft="71dp"
-                                android:text="Other" />
+                                android:layout_marginStart="71dp"
+                                android:text="@string/other" />
 
                             <TextView
                                 android:id="@+id/other_value"
@@ -422,11 +500,11 @@
                                 android:id="@+id/divider6"
                                 android:layout_width="2dp"
                                 android:layout_height="55dp"
-                                android:layout_alignParentStart="true"
                                 android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_alignParentTop="true"
-                                android:layout_marginStart="56dp"
                                 android:layout_marginLeft="56dp"
+                                android:layout_marginStart="56dp"
                                 android:background="#FFFFFF" />
 
                         </RelativeLayout>
@@ -436,6 +514,120 @@
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cardViewSavings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:padding="5dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="5dp"
+                app:cardPreventCornerOverlap="true"
+                app:cardUseCompatPadding="false"
+                app:contentPadding="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignEnd="@+id/cardViewCategories"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/titleSavings"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:cardBackgroundColor="#F0F0F0"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="0dp"
+                        app:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="5dp">
+
+                            <TextView
+                                android:id="@+id/title_savings"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="16dp"
+                                android:text="@string/savings"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:id="@+id/TotalSavings"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:cardBackgroundColor="#FDFDFD"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="0dp"
+                        app:cardPreventCornerOverlap="false"
+                        app:cardUseCompatPadding="true">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_margin="10dp"
+                                android:contentDescription="@string/icon01"
+                                app:srcCompat="@drawable/round_commute_black_36dp" />
+
+                            <TextView
+                                android:id="@+id/transportation_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="71dp"
+                                android:layout_marginStart="71dp"
+                                android:text="@string/transportation" />
+
+                            <TextView
+                                android:id="@+id/transportation_Value"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="20dp"
+                                android:layout_marginRight="20dp"
+                                android:text="$18,00"
+                                android:textSize="20sp" />
+
+                            <View
+                                android:id="@+id/divider1"
+                                android:layout_width="2dp"
+                                android:layout_height="55dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="56dp"
+                                android:layout_marginStart="56dp"
+                                android:background="#FFFFFF" />
+
+                        </RelativeLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
