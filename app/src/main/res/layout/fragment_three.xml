@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity$PlaceholderFragment">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardViewProfile"
@@ -25,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignEnd="@+id/cardViewCategories"
+            android:layout_alignRight="@+id/cardViewCategories"
             android:orientation="vertical">
 
             <android.support.v7.widget.CardView
@@ -53,7 +53,7 @@
                         android:text="@string/txtName" />
 
                     <TextView
-                        android:id="@+id/Name_value"
+                        android:id="@+id/name_value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -61,8 +61,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="20dp"
                         android:layout_marginRight="20dp"
-                        android:text="$18,00"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        tools:ignore="RelativeOverlap" />
 
                     <View
                         android:id="@+id/pdivider1"
@@ -113,8 +113,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="20dp"
                         android:layout_marginRight="20dp"
-                        android:text="$8,00"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        tools:ignore="RelativeOverlap" />
 
                     <View
                         android:id="@+id/pdivider2"
@@ -165,8 +165,8 @@
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="20dp"
                         android:layout_marginRight="20dp"
-                        android:text="$15,30"
-                        android:textSize="20sp" />
+                        android:textSize="20sp"
+                        tools:ignore="RelativeOverlap" />
 
                     <View
                         android:id="@+id/pdivider3"

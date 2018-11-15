@@ -35,7 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static String T3_C2 = "Category";
     private static String T3_C3 = "Amount";
 
-    private String clientID;
+    private static String clientID;
 
     private SQLiteDatabase sqldb = this.getWritableDatabase();
 
@@ -145,7 +145,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // updates the remaining daily limit, run after addTrans
     boolean updLimit(double amt) {
-        Cursor c = sqldb.query(T1,new String[] {T1_C7},T1_C1+"=?", new String[] {clientID},null,null,null);
+        Cursor c = sqldb.query(T1,new String[] {T1_C6},T1_C1+"=?", new String[] {clientID},null,null,null);
         c.moveToNext();
         double limit = c.getDouble(0) - amt;
         c.close();

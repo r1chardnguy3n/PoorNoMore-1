@@ -17,7 +17,7 @@ public class CreateAccount extends AppCompatActivity {
 
         final DatabaseHelper dbh = new DatabaseHelper(getApplicationContext());
 
-        final EditText txtName = findViewById(R.id.txtEmail);
+        final EditText txtName = findViewById(R.id.txtName);
         final EditText txtEmail = findViewById(R.id.txtEmail);
         final EditText txtIncome = findViewById(R.id.txtIncome);
         Button btnCreate = findViewById(R.id.btnCreate);

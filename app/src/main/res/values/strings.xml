@@ -26,7 +26,7 @@
     <string name="Categories">Categories</string>
     <string name="savings">Savings</string>
     <string name="totalexpenses">Total Expenses</string>
-    <string name="dayLimit">Your Day Limit is:</string>
+    <string name="dayLimit">Daily Limit:</string>
     <string name="txtNewAccount">New Account</string>
     <string name="txtCreateAccount">Create Account</string>
     <string name="txtSignin">Sign in</string>
