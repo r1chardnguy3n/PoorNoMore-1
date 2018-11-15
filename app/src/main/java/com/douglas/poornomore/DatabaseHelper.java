@@ -170,6 +170,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return (r > 0);
     }
 
+    //get client info
+    Cursor getClient() {
+        return sqldb.query(T1, new String [] {T1_C2,T1_C3,T1_C4},T1_C1 + "=?", new String [] {clientID},null,null,null);
+    }
+
     // get remaining limit
     Cursor getLimit() {
         return sqldb.query(T1, new String[] {T1_C6}, T1_C1 + "=?", new String[] {clientID},null,null,null);
