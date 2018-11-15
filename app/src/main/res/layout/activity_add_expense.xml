@@ -20,8 +20,7 @@
             android:orientation="vertical"
             android:background="@drawable/gradient2"
             android:padding="25dp"
-            android:layout_margin="15dp"
-            >
+            android:layout_margin="15dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -39,7 +38,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@drawable/addexpense_roundedcorners">
-
 
                 <TextView
                     android:id="@+id/date"
@@ -62,7 +60,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@drawable/addexpense_roundedcorners">
-
 
                 <TextView
                     android:layout_marginLeft="10dp"
@@ -96,31 +93,20 @@
                     android:drawablePadding="15dp"
                     android:drawableLeft="@drawable/dollar"
                     android:background="@null"
-                    android:hint="Enter Amount"
-                    />
+                    android:hint="Enter Amount" />
 
             </LinearLayout>
 
             <Button
-
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:text="Add"
                 android:layout_gravity="center"
                 android:layout_marginTop="100dp"
-                android:background="@drawable/addexpense_roundedcorners"
-                />
-
-
-
-
-
-
+                android:background="@drawable/addexpense_roundedcorners" />
 
         </LinearLayout>
 
     </LinearLayout>
-
-
 
 </LinearLayout>

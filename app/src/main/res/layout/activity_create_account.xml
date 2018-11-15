@@ -43,9 +43,7 @@
             android:layout_gravity="left"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/signin_roundedcorners"
-            >
-
+            android:background="@drawable/signin_roundedcorners">
 
             <EditText
                 android:id="@+id/txtName"
@@ -71,9 +69,7 @@
             android:layout_gravity="left"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/signin_roundedcorners"
-            >
-
+            android:background="@drawable/signin_roundedcorners">
 
             <EditText
                 android:id="@+id/txtEmail"
@@ -99,9 +95,7 @@
             android:layout_gravity="left"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/signin_roundedcorners"
-            >
-
+            android:background="@drawable/signin_roundedcorners">
 
             <EditText
                 android:id="@+id/txtIncome"
@@ -131,14 +125,7 @@
                 android:text="Create Account"
                 android:textColor="#ffffff" />
 
-
-
-
         </LinearLayout>
-
-
-
-
 
     </LinearLayout>
 

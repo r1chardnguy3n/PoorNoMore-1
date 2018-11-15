@@ -40,7 +40,6 @@
                 android:background="@drawable/signin_roundedcorners"
                 android:orientation="horizontal">
 
-
                 <EditText
                     android:id="@+id/txtSignin"
                     android:layout_width="match_parent"
@@ -54,7 +53,6 @@
                     android:textColor="#ffffff"
                     android:textColorHint="#ffffff"
                     android:textSize="22dp" />
-
 
             </LinearLayout>
 
@@ -96,12 +94,7 @@
 
             </LinearLayout>
 
-
         </LinearLayout>
-
-
-
-
 
     </LinearLayout>
 
