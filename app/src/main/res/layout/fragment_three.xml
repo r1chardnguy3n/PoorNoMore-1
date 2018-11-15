@@ -28,7 +28,7 @@
             android:orientation="vertical">
 
             <android.support.v7.widget.CardView
-                android:id="@+id/Name Card"
+                android:id="@+id/NameCard"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:cardBackgroundColor="#FDFDFD"
@@ -189,11 +189,13 @@
 
     <Button
         android:id="@+id/profileLogout"
-        android:layout_width="272dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="75dp"
-        android:text="@string/logoutBtn" />
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:text="@string/logoutBtn"
+        android:textStyle="bold" />
 
 </RelativeLayout>
