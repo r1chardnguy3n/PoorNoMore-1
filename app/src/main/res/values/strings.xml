@@ -10,6 +10,12 @@
     <string name="icon04">Restaurants Icon</string>
     <string name="icon05">Clothing Icon</string>
     <string name="icon06">Other icon</string>
+    <string name="transportation">Transportation</string>
+    <string name="groceries">Groceries</string>
+    <string name="liquor">Liquor</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="clothing">Clothing</string>
+    <string name="other">Other</string>
     <string name="txtEmail">Email</string>
     <string name="txtName">Name</string>
     <string name="txtIncome">Monthly Income</string>
@@ -17,4 +23,8 @@
     <string name="txtCategory">Choose Category</string>
     <string name="txtAmt">Enter Amount</string>
     <string name="logoutBtn">Logout</string>
+    <string name="Categories">Categories</string>
+    <string name="savings">Savings</string>
+    <string name="totalexpenses">Total Expenses</string>
+    <string name="dayLimit">Your Day Limit is:</string>
 </resources>
