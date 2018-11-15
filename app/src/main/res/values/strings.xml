@@ -16,4 +16,5 @@
     <string name="txtDate">Select Date</string>
     <string name="txtCategory">Choose Category</string>
     <string name="txtAmt">Enter Amount</string>
+    <string name="logoutBtn">Logout</string>
 </resources>
