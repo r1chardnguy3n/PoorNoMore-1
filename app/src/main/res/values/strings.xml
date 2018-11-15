@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PoorNoMore</string>
+    <string name="tab_text_1">Statistics</string>
+    <string name="tab_text_2">Expenses</string>
+    <string name="tab_text_3">Profile</string>
+    <string name="action_settings">Settings</string>
+    <string name="icon01">Transportation Icon</string>
+    <string name="icon02">Groceries Icon</string>
+    <string name="icon03">Liquor Icon</string>
+    <string name="icon04">Restaurants Icon</string>
+    <string name="icon05">Clothing Icon</string>
+    <string name="icon06">Other icon</string>
+    <string name="title_activity_main26">Main26Activity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+</resources>

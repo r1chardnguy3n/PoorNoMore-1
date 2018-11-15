@@ -1,0 +1,12 @@
+<resources>
+    <color name="colorPrimary">#2f7d32</color>
+    <color name="colorPrimaryDark">#015005</color>
+    <color name="colorAccent">#a0eda4</color>
+    <color name="colorcategoriescard">#FFFFFF</color>
+
+    <color name="gradBlue">#408c87</color>
+    <color name="gradGreen">#87dbac</color>
+    <color name="gradLightGreen">#9fddb6</color>
+    <color name="greyishWhite">#f7f7f7</color>
+    <color name="transGreen">#80545655</color>
+    </resources>

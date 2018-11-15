@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AddExpense"
+    android:background="@drawable/image5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:background="#70355663">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/gradient2"
+            android:padding="25dp"
+            android:layout_margin="15dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Expense"
+                android:textColor="#ffffff"
+                android:fontFamily="sans-serif-condensed"
+                android:textSize="40dp"/>
+
+            <!-- Date Input -->
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/addexpense_roundedcorners">
+
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:drawableLeft="@drawable/calendar"
+                    android:drawablePadding="15dp"
+                    android:text="Select Date"
+                    android:clickable="true"
+                    android:textSize="20dp"/>
+
+            </LinearLayout>
+
+            <!-- Category selection -->
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/addexpense_roundedcorners">
+
+
+                <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Choose Category"
+                    android:textColor="#ffffff"
+                    android:drawableLeft="@drawable/dollar"
+                    android:drawablePadding="15dp"
+                    android:textSize="20dp"/>
+
+            </LinearLayout>
+
+            <!-- Amount input -->
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/addexpense_roundedcorners">
+
+
+                <EditText
+                    android:layout_marginLeft="10dp"
+                    android:textSize="20dp"
+                    android:inputType="numberDecimal"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textColor="#ffffff"
+                    android:textColorHint="#ffffff"
+                    android:drawablePadding="15dp"
+                    android:drawableLeft="@drawable/dollar"
+                    android:background="@null"
+                    android:hint="Enter Amount"
+                    />
+
+            </LinearLayout>
+
+            <Button
+
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="Add"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:background="@drawable/addexpense_roundedcorners"
+                />
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
