@@ -183,10 +183,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // get transactions for date 'yyyy-MM-dd'
     Cursor getTrans(String date) {
         String [] col = {T2_C1,T2_C3,T2_C4,T2_C5,T2_C6};
-        String [] args = {clientID,date,"Savings"};
-        return sqldb.query(T2, col,T2_C2 + "=? AND " + T2_C3 + "=? AND " + T2_C5 + "!=?", args,null,null, T2_C1);
+        String [] args = {clientID,date};
+        return sqldb.query(T2, col,T2_C2 + "=? AND " + T2_C3 + "=?", args,null,null, T2_C1);
     }
 
+    // get transactions for month 'yyyy-MM'
+    Cursor getTransMo(String date) {
+        String [] col = {T2_C1,T2_C3,T2_C4,T2_C5,T2_C6};
+        String [] args = {clientID,date};
+        return sqldb.query(T2, col,T2_C2 + "=? AND " + T2_C3 + " LIKE ?", args,null,null, T2_C1);
+    }
+
+    // delete transaction by transID
     Boolean delTrans(String transID) {
         long r = sqldb.delete(T2, T2_C1 + "=?", new String[] {transID});
         return (r > 0);
