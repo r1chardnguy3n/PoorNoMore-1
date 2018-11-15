@@ -27,4 +27,9 @@
     <string name="savings">Savings</string>
     <string name="totalexpenses">Total Expenses</string>
     <string name="dayLimit">Your Day Limit is:</string>
+    <string name="txtNewAccount">New Account</string>
+    <string name="txtCreateAccount">Create Account</string>
+    <string name="txtSignin">Sign in</string>
+    <string name="txtDontHaveAccount">Dont"'"t have an account?</string>
+    <string name="txtSignup">Sign Up</string>
 </resources>
