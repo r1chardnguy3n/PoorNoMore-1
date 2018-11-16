@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".AddExpense"
-    android:background="@drawable/image5">
+    android:background="@drawable/gradientbackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="5dp"
-        android:background="#70355663">
+        android:background="#553FB480">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,7 +49,7 @@
                     android:drawablePadding="15dp"
                     android:text="@string/txtDate"
                     android:textColor="#ffffff"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -62,15 +62,16 @@
                 android:background="@drawable/addexpense_roundedcorners">
 
                 <TextView
-                    android:id="@+id/transCat"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/chooseCategory"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:drawableLeft="@drawable/dollar"
+                    android:drawableLeft="@drawable/categoryicon"
                     android:drawablePadding="15dp"
+                    android:clickable="true"
                     android:text="@string/txtCategory"
                     android:textColor="#ffffff"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
@@ -95,17 +96,20 @@
                     android:inputType="numberDecimal"
                     android:textColor="#ffffff"
                     android:textColorHint="#ffffff"
-                    android:textSize="20dp" />
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
             <Button
                 android:id="@+id/btnAdd"
-                android:layout_width="300dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="#ffffff"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="100dp"
-                android:background="@drawable/addexpense_roundedcorners"
+                android:background="@drawable/signin_button_roundedcorners"
                 android:text="Add" />
 
         </LinearLayout>

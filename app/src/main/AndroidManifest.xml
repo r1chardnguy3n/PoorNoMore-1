@@ -19,6 +19,6 @@
         </activity>
         <activity android:name=".CreateAccount" />
         <activity android:name=".MainActivity"/>
-        <activity android:name=".AddExpense" />
+        <activity android:name=".AddExpense"  android:exported="true"/>
     </application>
 </manifest>
