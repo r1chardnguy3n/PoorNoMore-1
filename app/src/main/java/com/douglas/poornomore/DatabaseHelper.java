@@ -190,7 +190,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // get transactions for month 'yyyy-MM'
     Cursor getTransMo(String date) {
         String [] col = {T2_C1,T2_C3,T2_C4,T2_C5,T2_C6};
-        String [] args = {clientID,date};
+        String [] args = {clientID,date+"%"};
         return sqldb.query(T2, col,T2_C2 + "=? AND " + T2_C3 + " LIKE ?", args,null,null, T2_C1);
     }
 
