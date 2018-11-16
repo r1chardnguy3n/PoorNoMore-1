@@ -35,8 +35,6 @@ public class AddExpense extends AppCompatActivity {
         final Calendar calendar = Calendar.getInstance();
         final TextView selectDate = findViewById(R.id.transDate);
         final TextView textCategory = (TextView)findViewById(R.id.chooseCategory);
-        chooseCategoryPopup = new Dialog(this);
-
         final EditText txtAmt = findViewById(R.id.transAmt);
         Button btnAdd = findViewById(R.id.btnAdd);
 
@@ -68,39 +66,41 @@ public class AddExpense extends AppCompatActivity {
             }
         });
 
-
-
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (selectDate.getText().toString().equals("")) {
+                if (selectDate.getText().toString().equals("Select Date")) {
                     Toast.makeText(getApplicationContext(),"Please enter the date",Toast.LENGTH_SHORT).show();
+                } else if (textCategory.getText().toString().equals("Choose Category")) {
+                    Toast.makeText(getApplicationContext(),"Please select a category",Toast.LENGTH_SHORT).show();
+                } else if (txtAmt.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(),"Please enter an amount",Toast.LENGTH_SHORT).show();
+                } else {
+                    String cat = textCategory.getText().toString();
+                    double amt = Double.parseDouble(txtAmt.getText().toString());
+                    if (dbh.addTrans(new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA).format(calendar.getTime()),"Name",cat,amt)) {
+                        Toast.makeText(getApplicationContext(),"Added transaction",Toast.LENGTH_SHORT).show();
+                        dbh.updLimit(amt);
+                        finish();
+                    }
                 }
-
-                double amt = Double.parseDouble(txtAmt.getText().toString());
-
-                if (dbh.addTrans(new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA).format(calendar.getTime()),"Name","Category",amt)) {
-                    Toast.makeText(getApplicationContext(),"Added transaction",Toast.LENGTH_SHORT).show();
-                    dbh.updLimit(amt);
-                    finish();
-                }
-
             }
         });
     }
 
     //Method for category popup menu
     public void ShowCategoryPopup(View v){
+        chooseCategoryPopup = new Dialog(this);
         chooseCategoryPopup.setContentView(R.layout.choosecategorypopup);
         chooseCategoryPopup.show();
         chooseCategoryPopup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
-        final CardView cvTransport, cvGroceries, cvLiqour, cvRestaurants, cvClothing, cvOther ;
+        final CardView cvTransport, cvGroceries, cvLiquor, cvRestaurants, cvClothing, cvOther ;
         final TextView txtCancel,txtChooseCategory;
 
         cvTransport = (CardView)chooseCategoryPopup.findViewById(R.id.transportationCategory);
         cvGroceries = (CardView)chooseCategoryPopup.findViewById(R.id.groceriesCategory);
-        cvLiqour = (CardView)chooseCategoryPopup.findViewById(R.id.liquorCategory);
+        cvLiquor = (CardView)chooseCategoryPopup.findViewById(R.id.liquorCategory);
         cvRestaurants = (CardView)chooseCategoryPopup.findViewById(R.id.restaurantsCetegory);
         cvClothing = (CardView)chooseCategoryPopup.findViewById(R.id.clothingCategory);
         cvOther = (CardView)chooseCategoryPopup.findViewById(R.id.otherCategory);
@@ -132,12 +132,12 @@ public class AddExpense extends AppCompatActivity {
         });
 
         //Liquor On Click
-        cvLiqour.setOnClickListener(new View.OnClickListener() {
+        cvLiquor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Drawable img = getBaseContext().getResources().getDrawable(R.drawable.liqourwhite);
                 txtChooseCategory.setCompoundDrawablesWithIntrinsicBounds(img,null,null,null);
-                txtChooseCategory.setText("Liqour");
+                txtChooseCategory.setText("Liquor");
                 chooseCategoryPopup.dismiss();
             }
         });
