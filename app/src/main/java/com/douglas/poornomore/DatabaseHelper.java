@@ -35,7 +35,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static String T3_C2 = "Category";
     private static String T3_C3 = "Amount";
 
-    private String clientID;
+    private static String clientID;
 
     private SQLiteDatabase sqldb = this.getWritableDatabase();
 
@@ -145,7 +145,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // updates the remaining daily limit, run after addTrans
     boolean updLimit(double amt) {
-        Cursor c = sqldb.query(T1,new String[] {T1_C7},T1_C1+"=?", new String[] {clientID},null,null,null);
+        Cursor c = sqldb.query(T1,new String[] {T1_C6},T1_C1+"=?", new String[] {clientID},null,null,null);
         c.moveToNext();
         double limit = c.getDouble(0) - amt;
         c.close();
@@ -183,10 +183,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // get transactions for date 'yyyy-MM-dd'
     Cursor getTrans(String date) {
         String [] col = {T2_C1,T2_C3,T2_C4,T2_C5,T2_C6};
-        String [] args = {clientID,date,"Savings"};
-        return sqldb.query(T2, col,T2_C2 + "=? AND " + T2_C3 + "=? AND " + T2_C5 + "!=?", args,null,null, T2_C1);
+        String [] args = {clientID,date};
+        return sqldb.query(T2, col,T2_C2 + "=? AND " + T2_C3 + "=?", args,null,null, T2_C1);
     }
 
+    // get transactions for month 'yyyy-MM'
+    Cursor getTransMo(String date) {
+        String [] col = {T2_C1,T2_C3,T2_C4,T2_C5,T2_C6};
+        String [] args = {clientID,date};
+        return sqldb.query(T2, col,T2_C2 + "=? AND " + T2_C3 + " LIKE ?", args,null,null, T2_C1);
+    }
+
+    // delete transaction by transID
     Boolean delTrans(String transID) {
         long r = sqldb.delete(T2, T2_C1 + "=?", new String[] {transID});
         return (r > 0);
@@ -229,8 +237,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     boolean onOpen() {
         Cursor c = sqldb.rawQuery("SELECT " + T1_C5 + "," +T1_C7 + " FROM " + T1 + " WHERE " + T1_C1 + "=" + clientID, null);
         c.moveToNext();
-        String lastRun = c.getString(0);
-        Double lim = c.getDouble(1);
+        Double lim = c.getDouble(0);
+        String lastRun = c.getString(1);
         c.close();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA);
         String today = sdf.format(new Date());
@@ -248,7 +256,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             while (!lastDate.equals(curDate)) {
                 Double limit = lim;
-                String date = sdf.format(lastDate.getTime().toString());
+                String date = sdf.format(lastDate.getTime());
                 Cursor c1 = sqldb.query(T2, new String[] {"SUM("+T2_C6+")"}, T2_C1+"=? AND "+T2_C3+"=?", new String[] {clientID,date},null,null,null);
                 c1.moveToNext();
                 double amt = c1.getDouble(0);

@@ -10,11 +10,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class AddExpense extends AppCompatActivity {
 
@@ -25,11 +30,15 @@ public class AddExpense extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_expense);
 
+        final DatabaseHelper dbh = new DatabaseHelper(getApplicationContext());
+
         final Calendar calendar = Calendar.getInstance();
         final TextView selectDate = findViewById(R.id.transDate);
         final TextView textCategory = (TextView)findViewById(R.id.chooseCategory);
         chooseCategoryPopup = new Dialog(this);
 
+        final EditText txtAmt = findViewById(R.id.transAmt);
+        Button btnAdd = findViewById(R.id.btnAdd);
 
         //Select Date Methods
         final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
@@ -38,7 +47,7 @@ public class AddExpense extends AppCompatActivity {
                 calendar.set(Calendar.YEAR, year);
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-                selectDate.setText(month + "/" + dayOfMonth + "/" + year);
+                selectDate.setText(String.format(Locale.getDefault(),"%d/%d/%d", month+1, dayOfMonth, year));
 
             }
         };
@@ -60,6 +69,24 @@ public class AddExpense extends AppCompatActivity {
         });
 
 
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (selectDate.getText().toString().equals("")) {
+                    Toast.makeText(getApplicationContext(),"Please enter the date",Toast.LENGTH_SHORT).show();
+                }
+
+                double amt = Double.parseDouble(txtAmt.getText().toString());
+
+                if (dbh.addTrans(new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA).format(calendar.getTime()),"Name","Category",amt)) {
+                    Toast.makeText(getApplicationContext(),"Added transaction",Toast.LENGTH_SHORT).show();
+                    dbh.updLimit(amt);
+                    finish();
+                }
+
+            }
+        });
     }
 
     //Method for category popup menu
