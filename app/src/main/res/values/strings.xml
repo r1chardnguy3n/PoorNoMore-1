@@ -10,6 +10,9 @@
     <string name="icon04">Restaurants Icon</string>
     <string name="icon05">Clothing Icon</string>
     <string name="icon06">Other icon</string>
+    <string name="icon07">Profile Icon</string>
+    <string name="icon08">Email icon</string>
+    <string name="icon09">income icon</string>
     <string name="transportation">Transportation</string>
     <string name="groceries">Groceries</string>
     <string name="liquor">Liquor</string>
