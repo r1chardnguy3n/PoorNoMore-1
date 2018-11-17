@@ -35,4 +35,23 @@
     <string name="txtSignin">Sign in</string>
     <string name="txtDontHaveAccount">Dont"'"t have an account?</string>
     <string name="txtSignup">Sign Up</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="transfer">Transfer</string>
+    <string name="addSavings">Add new Savings Account</string>
+    <string name="hintAddSavings">New Savings Account Name</string>
+    <string name="hintAddAmount">Enter Amount to transfer</string>
+    <string name="add">Add</string>
+
+        <string-array name="planets_array">
+            <item>Mercury</item>
+            <item>Venus</item>
+            <item>Earth</item>
+            <item>Mars</item>
+            <item>Jupiter</item>
+            <item>Saturn</item>
+            <item>Uranus</item>
+            <item>Neptune</item>
+        </string-array>
+
 </resources>

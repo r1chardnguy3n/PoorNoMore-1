@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -33,6 +35,7 @@ public class tab3 extends Fragment {
             email.setText(em);
             income.setText(NumberFormat.getCurrencyInstance(Locale.getDefault()).format(in));
         }
+
 
         return rootView;
     }
