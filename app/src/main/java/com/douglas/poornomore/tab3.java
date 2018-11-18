@@ -8,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class tab3 extends Fragment {
@@ -37,6 +41,31 @@ public class tab3 extends Fragment {
         }
 
 
+        //
+        final EditText savingsCat = rootView.findViewById(R.id.AddSavings);
+        Button addSavingsBtn = rootView.findViewById(R.id.addSavingsBtn);
+
+        final List<String> arraySavings = new ArrayList<>();
+        arraySavings.add("Savings");
+
+        addSavingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                arraySavings.add(savingsCat.getText().toString());
+
+            }
+        });
+
+        Spinner s = (Spinner) rootView.findViewById(R.id.spinnerFrom);
+        ArrayAdapter<String> savingsAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, arraySavings);
+        savingsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s.setAdapter(savingsAdapter);
+
+        //
+
+
         return rootView;
+
     }
+
 }

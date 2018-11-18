@@ -329,16 +329,16 @@
                             android:layout_height="match_parent">
 
                             <Button
-                                android:id="@+id/addSavingsAcc"
-                                android:layout_width="62dp"
-                                android:layout_height="wrap_content"
+                                android:id="@+id/addSavingsBtn"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
                                 android:layout_alignParentBottom="true"
-                                android:layout_marginStart="28dp"
-                                android:layout_marginLeft="28dp"
-                                android:layout_marginBottom="19dp"
+                                android:layout_marginStart="56dp"
+                                android:layout_marginLeft="56dp"
+                                android:layout_marginBottom="15dp"
                                 android:layout_toEndOf="@+id/AddSavings"
                                 android:layout_toRightOf="@+id/AddSavings"
-                                android:text="@string/add" />
+                                android:background="@drawable/baseline_add_circle_outline_black_36dp" />
 
                             <EditText
                                 android:id="@+id/AddSavings"
@@ -418,8 +418,7 @@
                                 android:layout_alignParentEnd="true"
                                 android:layout_alignParentRight="true"
                                 android:layout_marginEnd="6dp"
-                                android:layout_marginRight="6dp"
-                                android:entries="@array/planets_array" />
+                                android:layout_marginRight="6dp" />
 
                         </RelativeLayout>
 
