@@ -132,10 +132,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // add Savings account, run after addClient
-    boolean addSavings() {
+    boolean addSavings(String cat) {
         ContentValues v = new ContentValues();
         v.put(T3_C1, clientID);
-        v.put(T3_C2, "Uncategorized");
+        v.put(T3_C2, cat);
         v.put(T3_C3, 0);
 
         long r = sqldb.insert(T3, null, v);
@@ -205,11 +205,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return sqldb.query(T3,new String[] {T3_C2,T3_C3}, T3_C1 + "=?", new String[] {clientID}, null, null,null);
     }
 
+    // get account amount
+    Cursor getSavingsAmt(String cat) {
+        return sqldb.query(T3,new String[] {T3_C3}, T3_C1 + "=? AND " + T3_C2 + "=?", new String[] {clientID,cat}, null, null,null);
+    }
+
     // get savings for date 'yyyy-MM'
-    Cursor getSavings(String date) {
-        String [] col = {"SUM(" + T2_C6 + ")"};
-        String [] args = {clientID,"Savings",date + "%"};
-        return sqldb.query(T2, col,T2_C1 + "=? AND " + T2_C5 + "=? AND " + T2_C3 + " LIKE ?", args,null,null, null);
+    Cursor getTotSavings(String date) {
+        return sqldb.query(T2, new String[] {"SUM(" + T3_C3 + ")"},T3_C1 + "=?", new String[] {clientID},null,null, null);
     }
 
     // move savings into categories

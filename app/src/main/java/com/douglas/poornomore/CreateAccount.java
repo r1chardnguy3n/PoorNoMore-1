@@ -31,7 +31,7 @@ public class CreateAccount extends AppCompatActivity {
 
                 if (dbh.addClient(name, email, income)) {
                     if (dbh.login(email)) {
-                        if (dbh.addSavings()) {
+                        if (dbh.addSavings("Uncategorized")) {
                             startActivity(new Intent(CreateAccount.this, MainActivity.class));
                         }
                         else {

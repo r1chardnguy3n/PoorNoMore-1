@@ -45,10 +45,18 @@ public class tab1 extends Fragment {
         TextView cloAmt = rootView.findViewById(R.id.clothing_value);
         TextView resAmt = rootView.findViewById(R.id.restaurants_value);
         TextView othAmt = rootView.findViewById(R.id.other_value);
+        TextView uncAmt = rootView.findViewById(R.id.uncategorized_value);
 
         if (dbh.onOpen()) {
             Toast.makeText(getActivity(),"Updated records for today", Toast.LENGTH_SHORT).show();
         }
+
+        Cursor limit = dbh.getLimit();
+        while (limit.moveToNext()) {
+            double amt = limit.getDouble(0);
+            dailyAmt.setText(NumberFormat.getCurrencyInstance(Locale.getDefault()).format(amt));
+        }
+        limit.close();
 
         Cursor trans = dbh.getTransMo(new SimpleDateFormat("yyyy-MM", Locale.CANADA).format(new Date()));
         while (trans.moveToNext()) {
@@ -75,7 +83,7 @@ public class tab1 extends Fragment {
             }
             totExp += amt;
         }
-
+        trans.close();
 
         totAmt.setText(nf.format(totExp));
         traAmt.setText(nf.format(traExp));
@@ -85,12 +93,16 @@ public class tab1 extends Fragment {
         resAmt.setText(nf.format(resExp));
         othAmt.setText(nf.format(othExp));
 
-        Cursor limit = dbh.getLimit();
-        while (limit.moveToNext()) {
-            double amt = limit.getDouble(0);
-            dailyAmt.setText(NumberFormat.getCurrencyInstance(Locale.getDefault()).format(amt));
+        Cursor savings = dbh.getSavings();
+
+        while (savings.moveToNext()) {
+            switch (savings.getString(0)) {
+                case "Uncategorized":
+                    uncAmt.setText(nf.format(savings.getDouble(1)));
+                    break;
+            }
         }
-        limit.close();
+        savings.close();
 
         return rootView;
     }
