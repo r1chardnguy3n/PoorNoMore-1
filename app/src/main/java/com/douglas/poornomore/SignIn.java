@@ -27,7 +27,7 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SignIn.this, CreateAccount.class));
-                dbh.close();
+                finish();
             }
         });
 
@@ -38,7 +38,7 @@ public class SignIn extends AppCompatActivity {
 
                 if (dbh.login(email)) {
                     startActivity(new Intent(SignIn.this, MainActivity.class));
-                    dbh.close();
+                    finish();
 
                 } else {
                     Toast.makeText(getApplicationContext(),"Account not found", Toast.LENGTH_SHORT).show();

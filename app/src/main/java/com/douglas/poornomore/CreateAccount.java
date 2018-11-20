@@ -33,6 +33,7 @@ public class CreateAccount extends AppCompatActivity {
                     if (dbh.login(email)) {
                         if (dbh.addSavings("Uncategorized")) {
                             startActivity(new Intent(CreateAccount.this, MainActivity.class));
+                            finish();
                         }
                         else {
                             Toast.makeText(getApplicationContext(),"Failed to create savings account", Toast.LENGTH_SHORT).show();

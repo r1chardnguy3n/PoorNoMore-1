@@ -98,6 +98,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else return false;
     }
 
+    boolean logout() {
+        clientID = "0";
+        return true;
+    }
+
     // add client (must run login, addSavings then addTrans("New Account","Records",0, new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA).format(new Date()))
     boolean addClient(String name, String email, double inc) {
         Calendar cal = Calendar.getInstance();

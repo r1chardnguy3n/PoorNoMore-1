@@ -1,5 +1,6 @@
 package com.douglas.poornomore;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.os.Bundle;
@@ -35,6 +36,7 @@ public class ProfileTab extends Fragment {
         final Spinner toSav = rootView.findViewById(R.id.spinnerTo);
         Button addSavingsBtn = rootView.findViewById(R.id.addSavingsBtn);
         final Button moveSav = rootView.findViewById(R.id.MoveSavings);
+        Button logout = rootView.findViewById(R.id.profileLogout);
 
         final DatabaseHelper dbh = new DatabaseHelper(getActivity());
         Cursor c = dbh.getClient();
@@ -109,8 +111,19 @@ public class ProfileTab extends Fragment {
             }
         });
 
-        return rootView;
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (dbh.logout()) {
+                    Toast.makeText(getActivity(),"Successfully logged out", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), SignIn.class));
+                } else {
+                    Toast.makeText(getActivity(),"Failed to logged out", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
+        return rootView;
     }
 
 }
