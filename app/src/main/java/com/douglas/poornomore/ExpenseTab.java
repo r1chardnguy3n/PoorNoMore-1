@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class tab2 extends Fragment {
+public class ExpenseTab extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
