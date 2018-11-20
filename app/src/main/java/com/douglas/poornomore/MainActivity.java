@@ -14,6 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -89,14 +92,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (count >= 1) {
-            count = 0;
             Intent intent = new Intent(Intent.ACTION_MAIN);
             intent.addCategory(Intent.CATEGORY_HOME);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         } else {
             Toast.makeText(this,"Press back again to exit app", Toast.LENGTH_SHORT).show();
+            TimerTask task = new TimerTask() {
+                @Override
+                public void run() {
+                    count = 0;
+                }
+            };
+
+            Timer timer = new Timer();
+
             count++;
+
+            timer.schedule(task,4000);
         }
     }
 

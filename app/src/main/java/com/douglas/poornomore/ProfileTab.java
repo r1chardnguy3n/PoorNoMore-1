@@ -116,6 +116,7 @@ public class ProfileTab extends Fragment {
             public void onClick(View v) {
                 if (dbh.logout()) {
                     Toast.makeText(getActivity(),"Successfully logged out", Toast.LENGTH_SHORT).show();
+                    getActivity().finish();
                     startActivity(new Intent(getActivity(), SignIn.class));
                 } else {
                     Toast.makeText(getActivity(),"Failed to logged out", Toast.LENGTH_SHORT).show();
