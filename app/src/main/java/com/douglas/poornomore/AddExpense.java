@@ -2,18 +2,17 @@ package com.douglas.poornomore;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -81,7 +80,9 @@ public class AddExpense extends AppCompatActivity {
                     if (dbh.addTrans(new SimpleDateFormat("yyyy-MM-dd", Locale.CANADA).format(calendar.getTime()),"Name",cat,amt)) {
                         Toast.makeText(getApplicationContext(),"Added transaction",Toast.LENGTH_SHORT).show();
                         dbh.updLimit(amt);
-                        finish();
+                        //finish();
+                        //this way it forces it to start again and then update the values
+                        startActivity(new Intent(AddExpense.this, MainActivity.class));
                     }
                 }
             }

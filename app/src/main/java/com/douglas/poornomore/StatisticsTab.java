@@ -22,6 +22,8 @@ import java.util.Locale;
 
 public class StatisticsTab extends Fragment {
 
+
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_one, container, false);
@@ -103,7 +105,7 @@ public class StatisticsTab extends Fragment {
             }
         }
         savings.close();
-
         return rootView;
+
     }
 }

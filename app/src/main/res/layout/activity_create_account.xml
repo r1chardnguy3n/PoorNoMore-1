@@ -20,20 +20,20 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
+
+            <ImageView
+                android:id="@+id/logo2"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:text="Poor No More"
-                android:textSize="40sp"
-                android:textColor="#ffffff"
-                android:layout_marginTop="50dp"/>
+                android:contentDescription="@string/logo"
+                app:srcCompat="@drawable/logo_white_350" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="@string/txtNewAccount"
-                android:textSize="25sp"
-                android:layout_marginTop="70dp"/>
+                android:textSize="25sp" />
 
         <!-- Name -->
         <LinearLayout

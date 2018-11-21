@@ -21,21 +21,20 @@
             android:orientation="vertical"
             android:gravity="center">
 
-            <TextView
-                android:id="@+id/txtTitle"
-                android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:text="Poor No More"
-                android:textColor="#ffffff"
-                android:textSize="40sp" />
+                android:layout_marginTop="50dp"
+                android:contentDescription="@string/logo"
+                app:srcCompat="@drawable/logo_white_350" />
 
             <LinearLayout
-                android:layout_marginTop="150dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/signin_roundedcorners"
                 android:orientation="horizontal">

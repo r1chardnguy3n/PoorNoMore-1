@@ -32,7 +32,7 @@
                 app:contentPadding="0dp">
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/titleCategories"
+                    android:id="@+id/titleDaily"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     app:cardBackgroundColor="#F0F0F0"
@@ -43,14 +43,14 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:padding="5dp">
+                        android:padding="1dp">
 
                         <TextView
                             android:id="@+id/title_total_expenses"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
                             android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
                             android:layout_marginRight="10dp"
                             android:text="@string/totalexpenses"
                             android:textSize="15sp"
@@ -577,7 +577,6 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imageView2"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
                                 android:layout_marginStart="10dp"
@@ -612,14 +611,13 @@
                                 android:textSize="20sp" />
 
                             <View
-                                android:id="@+id/divider1"
                                 android:layout_width="2dp"
                                 android:layout_height="55dp"
-                                android:layout_alignParentLeft="true"
                                 android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
                                 android:layout_alignParentTop="true"
-                                android:layout_marginLeft="56dp"
                                 android:layout_marginStart="56dp"
+                                android:layout_marginLeft="56dp"
                                 android:background="#FFFFFF" />
 
                         </RelativeLayout>
@@ -629,6 +627,10 @@
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
