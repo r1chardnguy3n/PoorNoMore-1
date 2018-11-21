@@ -222,7 +222,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // move savings into categories
     boolean moveSavings(String fromCat, String toCat, double amt) {
-        String query = "UPDATE " + T3 + " SET " + T3_C3 + "=" + T3_C3 + "-" + amt + " WHERE " + T3_C1 + "=" + clientID + " AND " + T3_C2 + "=" + fromCat;
+        String query = "UPDATE " + T3 + " SET " + T3_C3 + "=" + T3_C3 + "-" + amt + " WHERE " + T3_C1 + "=" + clientID + " AND " + T3_C2 + "='" + fromCat + "'";
         sqldb.execSQL(query);
 
         Cursor c = sqldb.query(T3, new String[] {T3_C3},T3_C1 + "=? AND " + T3_C2 + "=?", new String[] {clientID, toCat},null,null,null);
