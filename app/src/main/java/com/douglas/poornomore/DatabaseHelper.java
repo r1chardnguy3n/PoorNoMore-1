@@ -217,7 +217,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // get savings for date 'yyyy-MM'
     Cursor getTotSavings(String date) {
-        return sqldb.query(T2, new String[] {"SUM(" + T3_C3 + ")"},T3_C1 + "=?", new String[] {clientID},null,null, null);
+        return sqldb.query(T3, new String[] {"SUM(" + T3_C3 + ")"},T3_C1 + "=?", new String[] {clientID},null,null, null);
     }
 
     // move savings into categories
@@ -272,7 +272,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 if (amt < limit) {
                     limit -= amt + diff;
                     diff = 0;
-                    addTrans(date, "Deposit", "Savings", limit);
                     String query = "UPDATE " + T3 + " SET " + T3_C3 + "=" + T3_C3 + "+" + limit + " WHERE " + T3_C1 + "=" + clientID + " AND " + T3_C2 + "='Uncategorized'";
                     sqldb.execSQL(query);
                 } else {
