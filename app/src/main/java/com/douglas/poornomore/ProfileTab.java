@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,8 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+
 
 public class ProfileTab extends Fragment {
 
@@ -50,12 +53,32 @@ public class ProfileTab extends Fragment {
             income.setText(NumberFormat.getCurrencyInstance(Locale.getDefault()).format(in));
         }
 
+
+        final List<String> arraySavings = new ArrayList<>();
+
+        final Cursor savings = dbh.getSavings();
+        while (savings.moveToNext()) {
+            arraySavings.add(savings.getString(0));
+        }
+
+
+        savings.close();
+
+        final ArrayAdapter<String> savingsAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, arraySavings);
+        savingsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        fromSav.setAdapter(savingsAdapter);
+        toSav.setAdapter(savingsAdapter);
+
         addSavingsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (dbh.addSavings(savingsCat.getText().toString())) {
                     Toast.makeText(getActivity(),"Added savings account",Toast.LENGTH_SHORT).show();
                     savingsCat.setText("");
+
+                    FragmentTransaction ft = getFragmentManager().beginTransaction();
+                    ft.detach(ProfileTab.this).attach(ProfileTab.this).commit();
+
                 } else {
                     Toast.makeText(getActivity(),"Failed to add savings account",Toast.LENGTH_SHORT).show();
                 }
@@ -63,20 +86,7 @@ public class ProfileTab extends Fragment {
             }
         });
 
-        final List<String> arraySavings = new ArrayList<>();
 
-        Cursor savings = dbh.getSavings();
-
-        while (savings.moveToNext()) {
-            arraySavings.add(savings.getString(0));
-        }
-
-        savings.close();
-
-        ArrayAdapter<String> savingsAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item, arraySavings);
-        savingsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        fromSav.setAdapter(savingsAdapter);
-        toSav.setAdapter(savingsAdapter);
 
         moveSav.setOnClickListener(new View.OnClickListener() {
             @Override

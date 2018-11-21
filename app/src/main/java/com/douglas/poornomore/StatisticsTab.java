@@ -97,6 +97,8 @@ public class StatisticsTab extends Fragment {
 
         Cursor savings = dbh.getSavings();
 
+
+
         while (savings.moveToNext()) {
             switch (savings.getString(0)) {
                 case "Uncategorized":
