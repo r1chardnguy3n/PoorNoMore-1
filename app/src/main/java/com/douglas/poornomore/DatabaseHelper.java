@@ -218,12 +218,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // get savings for date 'yyyy-MM'
     Cursor getTotSavings(String date) {
-        return sqldb.query(T2, new String[] {"SUM(" + T3_C3 + ")"},T3_C1 + "=?", new String[] {clientID},null,null, null);
+        return sqldb.query(T3, new String[] {"SUM(" + T3_C3 + ")"},T3_C1 + "=?", new String[] {clientID},null,null, null);
     }
 
     // move savings into categories
     boolean moveSavings(String fromCat, String toCat, double amt) {
-        String query = "UPDATE " + T3 + " SET " + T3_C3 + "=" + T3_C3 + "-" + amt + " WHERE " + T3_C1 + "=" + clientID + " AND " + T3_C2 + "=" + fromCat;
+        String query = "UPDATE " + T3 + " SET " + T3_C3 + "=" + T3_C3 + "-" + amt + " WHERE " + T3_C1 + "=" + clientID + " AND " + T3_C2 + "='" + fromCat + "'";
         sqldb.execSQL(query);
 
         Cursor c = sqldb.query(T3, new String[] {T3_C3},T3_C1 + "=? AND " + T3_C2 + "=?", new String[] {clientID, toCat},null,null,null);
@@ -273,7 +273,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 if (amt < limit) {
                     limit -= amt + diff;
                     diff = 0;
-                    addTrans(date, "Deposit", "Savings", limit);
                     String query = "UPDATE " + T3 + " SET " + T3_C3 + "=" + T3_C3 + "+" + limit + " WHERE " + T3_C1 + "=" + clientID + " AND " + T3_C2 + "='Uncategorized'";
                     sqldb.execSQL(query);
                 } else {

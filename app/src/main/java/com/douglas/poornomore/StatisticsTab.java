@@ -1,20 +1,16 @@
 package com.douglas.poornomore;
 
+import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,8 +18,14 @@ import java.util.Locale;
 
 public class StatisticsTab extends Fragment {
 
+    private Context mContext;
+    LinearLayout mLayout;
+
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+
         View rootView = inflater.inflate(R.layout.fragment_one, container, false);
 
         double totExp = 0;
@@ -45,7 +47,6 @@ public class StatisticsTab extends Fragment {
         TextView cloAmt = rootView.findViewById(R.id.clothing_value);
         TextView resAmt = rootView.findViewById(R.id.restaurants_value);
         TextView othAmt = rootView.findViewById(R.id.other_value);
-        TextView uncAmt = rootView.findViewById(R.id.uncategorized_value);
 
         if (dbh.onOpen()) {
             Toast.makeText(getActivity(),"Updated records for today", Toast.LENGTH_SHORT).show();
@@ -93,17 +94,23 @@ public class StatisticsTab extends Fragment {
         resAmt.setText(nf.format(resExp));
         othAmt.setText(nf.format(othExp));
 
+        //Dynamically add savings cards
         Cursor savings = dbh.getSavings();
+        View view;
 
         while (savings.moveToNext()) {
-            switch (savings.getString(0)) {
-                case "Uncategorized":
-                    uncAmt.setText(nf.format(savings.getDouble(1)));
-                    break;
-            }
+            view = inflater.inflate(R.layout.card_template, null);
+            ViewGroup main = rootView.findViewById(R.id.insertPoint);
+            TextView text = view.findViewById(R.id.textTemplate);
+            TextView value = view.findViewById(R.id.valueTemplate);
+
+            text.setText(savings.getString(0));
+            value.setText(nf.format(savings.getDouble(1)));
+
+            main.addView(view);
         }
-        savings.close();
 
         return rootView;
+
     }
 }
