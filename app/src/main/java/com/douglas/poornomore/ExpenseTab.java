@@ -30,6 +30,7 @@ public class ExpenseTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //Calling RecyclerView and connecting to fragment display
         rootView = inflater.inflate(R.layout.fragment_two, container, false);
         recyclerView = (RecyclerView)rootView.findViewById(R.id.recycler_view);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(getContext(),expenseList);
@@ -43,9 +44,11 @@ public class ExpenseTab extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Calling database Helper
         DatabaseHelper dbh = new DatabaseHelper(getActivity());
         expenseList = new ArrayList<>();
-        Cursor cursor = dbh.getTransMo(new SimpleDateFormat("yyyy-MM", Locale.CANADA).format(new Date()));
+        Cursor cursor = dbh.getTransMoExpense(new SimpleDateFormat("yyyy-MM", Locale.CANADA).format(new Date()));
+
 
         while (cursor.moveToNext())
         {

@@ -200,6 +200,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return sqldb.query(T2, col,T2_C2 + "=? AND " + T2_C3 + " LIKE ?", args,null,null, T2_C1);
     }
 
+    // get transactions for month 'yyyy-MM' with Descending order
+    Cursor getTransMoExpense(String date) {
+        String [] col = {T2_C1,T2_C3,T2_C4,T2_C5,T2_C6};
+        String [] args = {clientID,date+"%"};
+        return sqldb.query(T2, col,T2_C2 + "=? AND " + T2_C3 + " LIKE ?", args,null,null, T2_C3 + " DESC, " + T2_C1 + " DESC");
+    }
+
     // delete transaction by transID
     Boolean delTrans(String transID) {
         long r = sqldb.delete(T2, T2_C1 + "=?", new String[] {transID});
